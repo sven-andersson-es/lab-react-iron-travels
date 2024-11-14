@@ -1,37 +1,62 @@
-import "./TravelCard.css"
+import "./TravelCard.css";
 
-export default function TravelCard (props) {
-    const {id,destination,image,days,allInclusive,totalCost,description,parts: [part]} = props.eachCard
-    const removeItem = (id) => {
-       const thisCard = document.getElementById(id)
-       thisCard.remove();
-    }
-    return (
-
-        <article className="travel-card" id={id}>
-            <img src={image} alt={destination} />
-            <div>
-            <div className="plan">
-                <h2>{destination} ({days} Days)</h2>
-                <p className="description">
-                    {description}
-                </p>
-                <p className="price">
-                    <span>Price:</span> {totalCost} €
-                </p>
-                <div className="labels">
-                    {(totalCost < 350 ) ? <div className="great-deal">Great deal</div> : "" }
-                    {(totalCost > 1500 ) ? <div>Premium</div> : "" }
-                    {allInclusive ? <div>All inclusive</div> : "" }
-                </div>
-                </div>
-                <div className="delete">
-                <button onClick={() => {removeItem(id)}}>Delete</button>
-                </div>
-            </div>
-        </article>
-
-    )
+export default function TravelCard(props) {
+	const {
+		id,
+		destination,
+		image,
+		days,
+		allInclusive,
+		totalCost,
+		description,
+		parts: [part],
+	} = props.eachCard;
+	const removeItem = (id) => {
+		const thisCard = document.getElementById(id);
+		thisCard.remove();
+	};
+    
+	return (
+		<article className="travel-card" id={id}>
+			<img src={image} alt={destination} />
+			<div>
+				<div className="plan">
+					<h2>
+						{destination} ({days} Days)
+					</h2>
+					<p className="description">{description}</p>
+					<p className="price">
+						<span>Price:</span> {totalCost} €
+					</p>
+					<div className="labels">
+						{totalCost < 350 ? (
+							<div className="great-deal">Great deal</div>
+						) : (
+							""
+						)}
+						{totalCost > 1500 ? <div>Premium</div> : ""}
+						{allInclusive ? <div>All inclusive</div> : ""}
+					</div>
+				</div>
+				<div className="footer-buttons">
+					<button
+						onClick={() => {
+							removeItem(id);
+						}}
+					>
+						Delete
+					</button>
+					<button
+						onClick={() => {
+							props.addFavourite(id);
+						}}
+					>
+						Add to favourites
+					</button>
+				</div>
+			</div>
+		</article>
+	);
 }
 
 /* 

@@ -1,13 +1,40 @@
+import { useState } from "react";
 import travelPlansData from "../assets/travel-plans.json";
 import TravelCard from "./TravelCard";
-import "./TravelList.css"
+import "./TravelList.css";
+import TravelFavouriteCard from "./TravelFavouriteCard";
 
 export default function TravelList() {
+	const [favourites, setFavourite] = useState([]);
+	const [plans, setPlan] = useState(travelPlansData);
+
+	const addToFavourites = (addId) => {
+		//set the favourite - filter returns a new array, so we need to select only the object with [0]
+		setFavourite([...favourites, travelPlansData.filter((plan) => plan.id === addId)[0]]);
+
+		//update the travel plans
+		setPlan(plans.filter((plan) => plan.id !== addId));
+	};
+
+
 	return (
-		<div className="travel-list">
-			{travelPlansData.map((travel, index) => {
-				return <TravelCard key={index} eachCard={travel} />;
-			})}
-		</div>
+		<>
+			<div className="travel-list">
+				{plans.map((travel, index) => {
+					return (
+						<TravelCard
+							key={index}
+							eachCard={travel}
+							addFavourite={addToFavourites}
+						/>
+					);
+				})}
+			</div>
+			<div className="favourites-list">
+				{favourites.map((travel, index) => {
+					return <TravelFavouriteCard key={index} eachCard={travel} />;
+				})}
+			</div>
+		</>
 	);
 }
