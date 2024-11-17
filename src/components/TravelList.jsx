@@ -18,7 +18,7 @@ export default function TravelList() {
 
 
 	return (
-		<>
+		<div className="lists">
 			<div className="travel-list">
 				{plans.map((travel, index) => {
 					return (
@@ -35,6 +35,6 @@ export default function TravelList() {
 					return <TravelFavouriteCard key={index} eachCard={travel} />;
 				})}
 			</div>
-		</>
+		</div>
 	);
 }

@@ -1,4 +1,19 @@
-.travel-list {
-    margin: 0 auto;
-    width: 80vw;
+.lists {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 1rem;
+
+    .travel-list {
+        width: 70%;
+    }
+    .favourites-list {
+        width: 30%;
+    }
+    button {
+        &:first-child {
+            margin-right: 0.5rem;
+        }
+    }
 }

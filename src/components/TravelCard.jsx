@@ -15,10 +15,12 @@ export default function TravelCard(props) {
 		const thisCard = document.getElementById(id);
 		thisCard.remove();
 	};
-    
+
 	return (
 		<article className="travel-card" id={id}>
-			<img src={image} alt={destination} />
+			<div className="img">
+				<img src={image} alt={destination} />
+			</div>
 			<div>
 				<div className="plan">
 					<h2>

@@ -6,9 +6,12 @@
 	border: 1px solid #222;
 	display: flex;
 	flex-direction: row;
-	img {
-		max-width: 50%;
-		width: auto;
+	div.img {
+		max-width: 60%;
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 	> div {
 		display: flex;
@@ -18,6 +21,7 @@
 		padding-left: 2rem;
 		text-align: left;
 		div.plan {
+            margin-bottom: 0.5rem;
 			h2 {
 				font-size: 2rem;
 				margin: 0 0 1rem 0;
