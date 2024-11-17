@@ -31,6 +31,7 @@ export default function TravelList() {
 				})}
 			</div>
 			<div className="favourites-list">
+                <h2>Favourites</h2>
 				{favourites.map((travel, index) => {
 					return <TravelFavouriteCard key={index} eachCard={travel} />;
 				})}

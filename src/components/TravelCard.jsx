@@ -53,7 +53,7 @@ export default function TravelCard(props) {
 							props.addFavourite(id);
 						}}
 					>
-						Add to favourites
+						♡
 					</button>
 				</div>
 			</div>

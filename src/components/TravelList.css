@@ -1,14 +1,19 @@
 .lists {
-    width: 100vw;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 2rem;
-    padding: 0 1rem;
 
     .travel-list {
         width: 70%;
     }
     .favourites-list {
+        > h2 {
+            color: #222;
+            line-height: 1;
+            margin-top: 0;
+            padding-top: 0;
+        }
         width: 30%;
     }
     button {
