@@ -11,10 +11,10 @@ export default function TravelCard(props) {
 		description,
 		parts: [part],
 	} = props.eachCard;
-	const removeItem = (id) => {
-		const thisCard = document.getElementById(id);
-		thisCard.remove();
-	};
+	// const removeItem = (id) => {
+	// 	const thisCard = document.getElementById(id);
+	// 	thisCard.remove();
+	// };
 
 	return (
 		<article className="travel-card" id={id}>
@@ -43,7 +43,7 @@ export default function TravelCard(props) {
 				<div className="footer-buttons">
 					<button
 						onClick={() => {
-							removeItem(id);
+							props.removeCard(id);
 						}}
 					>
 						Delete
